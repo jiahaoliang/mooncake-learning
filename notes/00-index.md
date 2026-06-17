@@ -1,8 +1,38 @@
 # 学习索引
 
-这是 Mooncake、vLLM、vLLM Ascend 学习资料的入口。
+这是 Mooncake、vLLM、vLLM Ascend 学习资料的入口。当前 workspace 使用
+“导师式陪读”方式：日常学习从 session 开始，稳定结论沉淀到 notes。
 
-## 推荐阅读顺序
+## 日常入口
+
+先打开：
+
+```text
+tasks/session-backlog.md
+```
+
+然后选择一个 session：
+
+```text
+sessions/001-vllm-kv-transfer-config.md
+sessions/002-vllm-connector-lifecycle.md
+sessions/003-mooncake-connector-p2p.md
+```
+
+每个 session 控制在 30-45 分钟，只解决一个问题。
+
+## 文件职责
+
+| 路径 | 用途 |
+| --- | --- |
+| `sessions/` | 每次学习的任务、导读、检查问题。 |
+| `tasks/session-backlog.md` | 学习 session 队列，决定下一次学什么。 |
+| `tasks/learning-roadmap.md` | 长期路线和阶段目标，不作为每天的直接入口。 |
+| `notes/` | 长期知识库，只写已经验证的稳定结论。 |
+| `tasks/contribution-ideas.md` | 记录潜在 issue、测试、文档 PR。 |
+| `repos/` | 上游源码，主要只读。 |
+
+## 长期阅读顺序
 
 1. Mooncake architecture、Transfer Engine、Mooncake Store。
 2. vLLM KV transfer connector 的生命周期。

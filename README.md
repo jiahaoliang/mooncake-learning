@@ -28,7 +28,13 @@ git submodule update --init --recursive
 
 ```text
 notes/00-index.md
-tasks/learning-roadmap.md
+```
+
+日常学习时直接看：
+
+```text
+tasks/session-backlog.md
+sessions/
 ```
 
 主线目标是理解 KV cache 在三个系统里的生命周期：

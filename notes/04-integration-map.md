@@ -10,6 +10,33 @@
 | KV load failure | kv_load_failure_policy | recompute / fail behavior | 定义 remote KV 无法加载时的处理方式。 |
 | Buffer registration | KV block metadata | Ascend memory registration | 读到具体代码路径后继续补充。 |
 
+## 关键源码入口
+
+| 方向 | 入口 |
+| --- | --- |
+| vLLM connector 抽象 | `repos/vllm/vllm/distributed/kv_transfer/kv_connector/v1/base.py` |
+| vLLM connector 加载 | `repos/vllm/vllm/distributed/kv_transfer/kv_connector/factory.py` |
+| vLLM Mooncake P2P | `repos/vllm/vllm/distributed/kv_transfer/kv_connector/v1/mooncake/mooncake_connector.py` |
+| vLLM Mooncake Store | `repos/vllm/vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/` |
+| vLLM Ascend P2P | `repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_p2p/` |
+| vLLM Ascend KV pool | `repos/vllm-ascend/vllm_ascend/distributed/kv_transfer/kv_pool/ascend_store/` |
+| Mooncake Python connector | `repos/Mooncake/mooncake-wheel/mooncake/mooncake_connector_v1.py` |
+| Mooncake Store client | `repos/Mooncake/mooncake-store/include/real_client.h` |
+| Mooncake Ascend transport | `repos/Mooncake/mooncake-transfer-engine/src/transport/ascend_transport/` |
+
+## 待完成流程图
+
+```text
+MooncakeConnector:
+prefill worker -> Mooncake transfer -> decode worker
+
+MooncakeStoreConnector:
+vLLM instance -> Mooncake Store put/get -> prefix cache reuse
+
+AscendStoreConnector:
+vLLM Ascend -> AscendStoreConnector -> Mooncake backend -> Mooncake Store
+```
+
 ## 阅读规则
 
 每追踪一条 request 路径，都尽量回答：
