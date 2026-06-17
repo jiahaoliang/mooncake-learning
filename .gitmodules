@@ -1,0 +1,9 @@
+[submodule "repos/Mooncake"]
+	path = repos/Mooncake
+	url = https://github.com/kvcache-ai/Mooncake.git
+[submodule "repos/vllm"]
+	path = repos/vllm
+	url = https://github.com/vllm-project/vllm.git
+[submodule "repos/vllm-ascend"]
+	path = repos/vllm-ascend
+	url = https://github.com/vllm-project/vllm-ascend.git

@@ -1,0 +1,25 @@
+# Local editor and OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+Thumbs.db
+Desktop.ini
+
+# Python local artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Build/cache outputs
+build/
+dist/
+.cache/
+tmp/
+*.log
+
+# Keep source repos as submodules under repos/
