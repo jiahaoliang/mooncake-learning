@@ -1,9 +1,8 @@
-# Mooncake 学习 Workspace
+# Mooncake 教程 Workspace
 
-这个 workspace 用来学习 Mooncake 以及它和 vLLM、vLLM Ascend 周边生态的集成，
-后续也可以作为贡献代码前的资料整理区。
+这个 workspace 用来编写 Mooncake、vLLM、vLLM Ascend 相关的中文教程。
 
-当前定位是：源码阅读、中文笔记、跨仓库搜索、贡献准备。它不负责在 Windows 本地
+当前定位是：面向计算机科学本科生，输出深入浅出的教程。它不负责在 Windows 本地
 安装 Python 依赖、编译 Mooncake，或运行 vLLM。
 
 ## 源码仓库
@@ -27,14 +26,14 @@ git submodule update --init --recursive
 建议从这里开始：
 
 ```text
-notes/00-index.md
+tutorials/README.md
 ```
 
-日常学习时直接看：
+教程正文和术语表在：
 
 ```text
-tasks/session-backlog.md
-sessions/
+tutorials/
+tutorials/glossary.md
 ```
 
 主线目标是理解 KV cache 在三个系统里的生命周期：
@@ -52,18 +51,10 @@ vLLM Ascend disaggregated prefill and KV pool integration
 - KV 什么时候注册、传输、存储、加载、释放？
 - 失败后是重算、等待，还是报错？
 
-## 常用命令
-
-查看 workspace 状态：
+需要查源码时，可以直接用 `rg`：
 
 ```powershell
-.\scripts\status.ps1
-```
-
-跨源码和笔记搜索：
-
-```powershell
-.\scripts\search.ps1 MooncakeConnector
+rg MooncakeConnector repos
 ```
 
 ## 运行环境说明
