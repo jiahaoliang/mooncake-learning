@@ -12,9 +12,10 @@
 
 ## 推荐阅读顺序
 
-| 期数 | 文件 | 主题 |
-| --- | --- | --- |
-| 01 | `01-kv-cache-and-mooncake-big-picture.md` | 从 KV Cache 到 Mooncake：理解大模型推理服务的数据通路 |
+| 期数 | 文件 | 主题 | 外部阅读 |
+| --- | --- | --- | --- |
+| 01 | `01-llm-inference-from-prompt-to-answer.md` | 从 Prompt 到回答：大模型推理的基本流程 | [从零开始理解大模型](https://github.com/GitHubxsy/nanoAgent/blob/book/llm/README.md) |
+| 02 | `02-kv-cache-and-mooncake-big-picture.md` | 从 KV Cache 到 Mooncake：理解大模型推理服务的数据通路 | - |
 
 ## 术语表
 
