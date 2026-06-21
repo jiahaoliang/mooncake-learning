@@ -64,6 +64,58 @@ repos/vllm/vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/worker.py
 - KV block lifecycle
 - request waiting states
 
+## Session 001: KVTransferConfig 稳定结论
+
+`KVTransferConfig` 是 vLLM KV transfer 的入口配置。只要设置了
+`kv_connector`，就必须同时设置合法的 `kv_role`，否则会在
+`KVTransferConfig.__post_init__()` 阶段抛出 `ValueError`。
+
+关键字段：
+
+| 字段 | 作用 | Mooncake 场景重要性 |
+| --- | --- | --- |
+| `kv_connector` | 选择具体 connector，例如 `MooncakeConnector` 或 `MooncakeStoreConnector`。 | 高 |
+| `kv_role` | 描述当前 vLLM 实例在 KV transfer 拓扑里的业务角色。 | 高 |
+| `kv_connector_extra_config` | 透传给具体 connector 的扩展配置，通用 config 不解释其语义。 | 高 |
+| `kv_connector_module_path` | 从外部 Python module 动态加载 connector，优先于内置 registry。 | 中 |
+| `kv_load_failure_policy` | remote KV 加载失败后的策略：`recompute` 或 `fail`。 | 高 |
+
+`kv_both` 同时属于 producer 和 consumer：
+
+```python
+KVProducer = Literal["kv_producer", "kv_both"]
+KVConsumer = Literal["kv_consumer", "kv_both"]
+```
+
+因此同一个实例可以同时满足：
+
+```text
+is_kv_producer == True
+is_kv_consumer == True
+```
+
+`kv_connector_extra_config` 的语义由具体 connector 解释。通用配置层只提供
+`get_from_extra_config(key, default)` 读取入口。
+
+`KVConnectorFactory` 根据 `kv_connector` 字符串加载具体 connector class。加载优先级：
+
+```text
+kv_connector_module_path -> external module
+else connector_name in registry -> built-in registered connector
+else unsupported connector
+```
+
+`kv_role` 和 `KVConnectorRole` 是两个维度：
+
+| 概念 | 描述维度 | 示例 |
+| --- | --- | --- |
+| `kv_role` | 当前 vLLM 实例在 KV transfer 拓扑里的业务角色。 | `kv_producer`、`kv_consumer`、`kv_both` |
+| `KVConnectorRole` | 当前 connector 对象在 vLLM 内部运行在哪个职责侧。 | `SCHEDULER`、`WORKER` |
+
+例如，一个 `kv_role="kv_consumer"` 的 decode 实例内部，也会同时存在
+scheduler-side connector 和 worker-side connector。前者负责调度决策和 metadata，
+后者负责实际加载/保存 KV tensor。
+
 ## 需要画出的流程
 
 ```text
