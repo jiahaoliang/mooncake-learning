@@ -36,7 +36,7 @@
 
 ## 写作规则
 
-- 所有课程必须遵守 `docs/00-writing-guide.md`：术语首次出现前必须解释，不能只给 glossary 链接。
+- 所有新增 `docs/*.md` 课程必须遵守 `tutorial-plans/00-writing-guide.md`：术语首次出现前必须解释，不能只给 glossary 链接。
 - 每课只回答一个主问题，正文约 1500 字，不逐行走读源码。
 - 每课至少有一张 Mermaid 图，图后解释关键节点和箭头。
 - 代码入口表必须说明路径职责，不能只罗列文件。
@@ -45,7 +45,7 @@
 
 ## 发布检查清单
 
-- 每新增一课，同步更新 `docs/README.md` 推荐阅读顺序。
+- 每新增一课，同步更新 `docs/README.md` 章节目录。
 - 新增术语先补 `docs/glossary.md`，正文首次出现时就地解释。
 - 检查 `text` 代码块中没有 Markdown 链接语法。
 - 检查每课是否仍围绕 Mooncake 主线，避免变成 vLLM 通用教程。

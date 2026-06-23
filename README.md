@@ -48,6 +48,12 @@ docs/
 docs/glossary.md
 ```
 
+作者侧写作规范在：
+
+```text
+tutorial-plans/00-writing-guide.md
+```
+
 主线目标是理解 KV cache 在三个系统里的生命周期：
 
 ```text
