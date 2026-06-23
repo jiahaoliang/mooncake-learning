@@ -73,3 +73,14 @@ rg MooncakeConnector repos
 
 本地 Windows 环境主要用于阅读和索引。真正构建、运行 Mooncake、vLLM、vLLM Ascend，
 建议后续单独规划 Linux 或远程 Ascend 环境，并准备匹配的 Python、CANN、驱动和网络配置。
+
+## License / 许可证
+
+本仓库原创的教程、计划和说明文档采用
+[Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/)
+（CC BY 4.0）授权。
+
+引用、转载或改编这些原创内容时，请署名 `jiahaoliang`，链接到本仓库，并说明内容是否做过修改。
+
+`repos/` 目录下的 Mooncake、vLLM、vLLM Ascend 是 Git submodule 引入的上游源码，
+不受本仓库许可证重新授权；使用这些源码时请遵循各自上游项目的许可证。
