@@ -191,6 +191,7 @@
         <nav class="nav" aria-label="Main navigation">
           <a href="{{ '/' | relative_url }}">教程首页</a>
           <a href="{{ '/glossary.html' | relative_url }}">术语表</a>
+          <a href="{{ '/license.html' | relative_url }}">许可证</a>
           <a href="https://github.com/jiahaoliang/mooncake-learning">GitHub</a>
         </nav>
       </div>
@@ -199,7 +200,7 @@
       {{ content }}
     </main>
     <footer class="site-footer">
-      原创教程内容采用 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> 授权，署名 jiahaoliang。上游 submodule 源码遵循各自许可证。
+      原创教程内容采用 <a href="{{ '/license.html' | relative_url }}">CC BY 4.0</a> 授权，署名 jiahaoliang。上游 submodule 源码遵循各自许可证。
     </footer>
     <script type="module">
       import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
