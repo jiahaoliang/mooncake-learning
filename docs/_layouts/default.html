@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'zh-CN' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ site.description }}">
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #ffffff;
+        --fg: #202124;
+        --muted: #5f6368;
+        --line: #dfe3e8;
+        --soft: #f7f8fa;
+        --link: #0969da;
+        --code-bg: #f6f8fa;
+        --max: 980px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.72;
+      }
+
+      a {
+        color: var(--link);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .site-header {
+        border-bottom: 1px solid var(--line);
+        background: var(--soft);
+      }
+
+      .site-header-inner,
+      main,
+      .site-footer {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .site-header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        min-height: 64px;
+      }
+
+      .brand {
+        color: var(--fg);
+        font-weight: 700;
+      }
+
+      .nav {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        font-size: 14px;
+      }
+
+      main {
+        padding-top: 32px;
+        padding-bottom: 48px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.32;
+        margin-top: 1.8em;
+        margin-bottom: 0.7em;
+      }
+
+      h1 {
+        margin-top: 0;
+        padding-bottom: 0.35em;
+        border-bottom: 1px solid var(--line);
+        font-size: 2rem;
+      }
+
+      h2 {
+        padding-bottom: 0.2em;
+        border-bottom: 1px solid var(--line);
+      }
+
+      table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 8px 10px;
+        border: 1px solid var(--line);
+        vertical-align: top;
+      }
+
+      th {
+        background: var(--soft);
+        font-weight: 600;
+      }
+
+      code {
+        padding: 0.15em 0.35em;
+        border-radius: 4px;
+        background: var(--code-bg);
+        font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+        font-size: 0.92em;
+      }
+
+      pre {
+        overflow-x: auto;
+        padding: 16px;
+        border-radius: 6px;
+        background: var(--code-bg);
+      }
+
+      pre code {
+        padding: 0;
+        background: transparent;
+      }
+
+      blockquote {
+        margin-left: 0;
+        padding-left: 16px;
+        border-left: 4px solid var(--line);
+        color: var(--muted);
+      }
+
+      img,
+      svg {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .mermaid {
+        margin: 24px 0;
+        padding: 16px;
+        overflow-x: auto;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: #fff;
+      }
+
+      .site-footer {
+        padding-top: 18px;
+        padding-bottom: 32px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      @media (max-width: 640px) {
+        .site-header-inner {
+          align-items: flex-start;
+          flex-direction: column;
+          padding-top: 14px;
+          padding-bottom: 14px;
+        }
+
+        main {
+          padding-top: 24px;
+        }
+
+        h1 {
+          font-size: 1.65rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="{{ '/' | relative_url }}">教程首页</a>
+          <a href="{{ '/glossary.html' | relative_url }}">术语表</a>
+          <a href="https://github.com/jiahaoliang/mooncake-learning">GitHub</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      {{ content }}
+    </main>
+    <footer class="site-footer">
+      原创教程内容采用 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> 授权，署名 jiahaoliang。上游 submodule 源码遵循各自许可证。
+    </footer>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+
+      document.querySelectorAll("pre > code.language-mermaid").forEach((code) => {
+        const pre = code.parentElement;
+        const graph = document.createElement("div");
+        graph.className = "mermaid";
+        graph.textContent = code.textContent;
+        pre.replaceWith(graph);
+      });
+
+      mermaid.initialize({ startOnLoad: true, securityLevel: "strict" });
+    </script>
+  </body>
+</html>

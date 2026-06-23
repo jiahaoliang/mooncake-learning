@@ -38,14 +38,14 @@ git submodule update --init --recursive
 建议从这里开始：
 
 ```text
-tutorials/README.md
+docs/README.md
 ```
 
 教程正文和术语表在：
 
 ```text
-tutorials/
-tutorials/glossary.md
+docs/
+docs/glossary.md
 ```
 
 主线目标是理解 KV cache 在三个系统里的生命周期：

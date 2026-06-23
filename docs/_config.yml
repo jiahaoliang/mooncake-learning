@@ -1,0 +1,34 @@
+title: Mooncake / vLLM / vLLM Ascend 教程
+description: 面向计算机科学本科生的 Mooncake、vLLM、vLLM Ascend 中文教程。
+url: "https://jiahaoliang.github.io"
+baseurl: "/mooncake-learning"
+lang: zh-CN
+
+plugins:
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-relative-links
+  - jekyll-titles-from-headings
+
+optional_front_matter:
+  remove_originals: true
+
+readme_index:
+  enabled: true
+  remove_originals: false
+  with_frontmatter: false
+
+relative_links:
+  enabled: true
+  collections: true
+
+titles_from_headings:
+  enabled: true
+  strip_title: false
+  collections: true
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
