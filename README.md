@@ -15,6 +15,18 @@ repos/vllm          # vllm-project/vllm
 repos/vllm-ascend   # vllm-project/vllm-ascend
 ```
 
+当前 submodule 版本记录如下，更新时间为 2026-06-23：
+
+| 路径 | 版本标识 | Commit |
+| --- | --- | --- |
+| `repos/Mooncake` | `v0.2.0-1322-ga1e97616` | `a1e97616df477ac2ab91a9458640b863a39b010b` |
+| `repos/Mooncake/extern/pybind11` | `v2.11.1-250-g58c382a8` | `58c382a8e3d7081364d2f5c62e7f429f0412743b` |
+| `repos/Mooncake/extern/yalantinglibs` | `0.6.0-6-g6a0e067` | `6a0e067d9a43492cf8e4e280b531924fbd724dbd` |
+| `repos/vllm` | `v0.13.0rc1-5605-g7b5d60cc3` | `7b5d60cc3733025fc97ee03a91b5f46188aefe7d` |
+| `repos/vllm-ascend` | `v0.19.1rc1-572-g3ac10c80` | `3ac10c803a33aaced122e0c74e16425723af5251` |
+| `repos/vllm-ascend/csrc/third_party/catlass` | `v1.2.0-143-g41bf90d` | `41bf90da655bba3c66d0acd7e00abe33960ecfd6` |
+| `repos/vllm-ascend/csrc/third_party/catlass/3rdparty/googletest` | `release-1.8.0-3335-gf8d7d77c` | `f8d7d77c06936315286eb55f8de22cd23c188571` |
+
 初始化或刷新 submodule：
 
 ```powershell
